@@ -1,10 +1,26 @@
 import { getLocalStorage } from "./utils.mjs";
 
-function renderCartContents() {
+/* function renderCartContents() {
   const cartItems = getLocalStorage("so-cart");
   const htmlItems = cartItems.map((item) => cartItemTemplate(item));
   document.querySelector(".product-list").innerHTML = htmlItems.join("");
+} */
+
+function renderCartContents() {
+  const cartItems = getLocalStorage("so-cart");
+
+  // Check if cartItems is null or not an array
+  if (!cartItems || !Array.isArray(cartItems)) {
+    // If no items in cart or cart is not an array, handle it appropriately
+    document.querySelector(".product-list").innerHTML = "<p>Your cart is empty</p>";
+    return;
+  }
+
+  // If cartItems is a valid array, proceed with rendering
+  const htmlItems = cartItems.map((item) => cartItemTemplate(item));
+  document.querySelector(".product-list").innerHTML = htmlItems.join("");
 }
+
 
 function cartItemTemplate(item) {
   const newItem = `<li class="cart-card divider">
