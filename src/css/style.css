@@ -126,15 +126,17 @@ button {
   margin: auto;
 }
 .products {
-  padding: 0.5em;
+  margin-top: 2rem;
+  padding: 1rem;
 }
+
 .product-list {
   display: flex;
   flex-flow: row wrap;
-  justify-content: space-between;
   list-style-type: none;
-  padding: 0;
+  align-items: stretch;
 }
+
 .product-list a {
   text-decoration: none;
   color: var(--dark-grey);
@@ -183,7 +185,8 @@ button {
 .product-card {
   flex: 1 1 100%;
   margin: 0.25em;
-  padding: 0.5em;
+  padding: 1em;
+  text-align: center;
   border: 1px solid var(--light-grey);
   max-width: 250px;
 }
